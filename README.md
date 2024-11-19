@@ -12,3 +12,10 @@ The `bulletsep` package provides a simple and customizable way to create inline 
 2. Include the package in your LaTeX document with:
    ```latex
    \usepackage{bulletsep}
+
+## Usage
+### Basic Usage:
+```
+Lorem \bulletsep ipsum \bulletsep dolor \bulletsep sit \bulletsep amet.
+```
+
