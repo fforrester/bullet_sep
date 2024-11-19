@@ -18,4 +18,14 @@ The `bulletsep` package provides a simple and customizable way to create inline 
 ```
 Lorem \bulletsep ipsum \bulletsep dolor \bulletsep sit \bulletsep amet.
 ```
+### Setting Global Spacing:
+To set the default spacing for all \bulletsep commands:
+```
+\usepackage[spacing=.5em plus 2em]{bulletsep}
+```
+### Adjusting Spacing Locally:
+You can override the default spacing for individual bullets:
+```
+Lorem \bulletsep[.5em plus 2em] ipsum \bulletsep[1em] dolor.
+```
 
