@@ -1,0 +1,30 @@
+% bulletsep.sty: Custom LaTeX package for inline bullet-separated lists
+% Author: Frazer N. Forrester
+% Version: 1.0
+% Date: 19-11-2024
+% Description: Provides a command for creating inline lists with bullets and customizable spacing.
+
+\ProvidesPackage{bulletsep}[2024/11/19 v1.0 Inline bullet separator with adjustable spacing]
+
+% Load required packages
+\RequirePackage{xkeyval} % Enables key-value options
+
+% Define a key for customizing default spacing
+\DeclareOptionX{spacing}{\def\bulletsep@spacing{#1}}
+\ProcessOptionsX\relax
+
+% Set default spacing if none is provided
+\ifx\bulletsep@spacing\undefined
+  \def\bulletsep@spacing{.3em plus 5em} % Default spacing: 0.3em with stretchability
+\fi
+
+% Define the \bulletsep command
+\newcommand\bulletsep[1][\bulletsep@spacing]{%
+    \ifhmode\unskip\fi % Remove any extra space before the command
+    \leavevmode % Ensure horizontal mode
+    \nobreak\hspace{#1}% Add a non-breaking space before the bullet
+    \discretionary{}{}{\textbullet}% Insert a bullet (discretionary for line breaks)
+    \nobreak\hspace{#1}% Add a non-breaking space after the bullet
+}
+
+% End of package
